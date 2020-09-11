@@ -1,5 +1,5 @@
 const express = require("express");
-const { validatePostId } = require("../middleware/post");
+const { validatePostId, validatePost } = require("../middleware/post");
 const router = express.Router();
 
 const posts = require("../posts/postDb");
@@ -38,7 +38,7 @@ router.delete("/:id", validatePostId(), (req, res) => {
     });
 });
 
-router.put("/:id", validatePostId(), (req, res) => {
+router.put("/:id", validatePost(), validatePostId(), (req, res) => {
   // do your magic!
   posts
     .update(req.params.id, req.body)

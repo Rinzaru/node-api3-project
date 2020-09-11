@@ -92,10 +92,4 @@ router.put("/:id", validateUser(), validateUserId(), (req, res) => {
     });
 });
 
-//custom middleware
-
-// const validatePost = (req, res, next) => {
-//   // do your magic!
-// };
-
 module.exports = router;
